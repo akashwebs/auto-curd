@@ -136,3 +136,101 @@
 
 
 
+
+
+#total demo
+
+```
+  const {
+        register,
+        handleSubmit,
+        watch,
+        reset,
+        formState: { errors },
+    } = useForm();
+    const [imageUrl, setImageUrl] = useState()
+    const [richText, setValueOfRichText] = useState("");
+    const [selectOption, setSelectOption] = useState('')
+    const [startDate, setStartDate] = useState(new Date());
+
+
+    const formFormat = [
+        {
+            label: "Full Name",
+            type: "text",
+            placeholder: "Enter Your Full Name",
+            required: true,
+            errorMessage: "Full Name is required",
+            className: "border-0",
+            defaultValue: "",
+            name: "fullName"
+        },
+        {
+            label: "Select Choice",
+            type: "select",
+            options: [
+                { value: 'chocolate', label: 'Chocolate' },
+                { value: 'strawberry', label: 'Strawberry' },
+                { value: 'vanilla', label: 'Vanilla' }
+            ],
+            state: selectOption,
+            stateFn: setSelectOption,
+            required: false,
+            errorMessage: "Phone Number is required",
+            name: "slectChocoloate"
+        },
+        {
+            label: "Phone",
+            type: "tel",
+            placeholder: "Enter Your Phone Number",
+            required: true,
+            errorMessage: "Phone Number is required",
+            class: "border-0",
+            defaultValue: "",
+            name: "phoneNumber"
+        },
+        {
+            label: "birthday",
+            type: "date",
+            placeholder: "Birthday",
+            required: false,
+            state: startDate,
+            stateFn: setStartDate,
+            errorMessage: "birthday is require",
+            class: "border-2 border-red-500",
+            defaultValue: "",
+            name: "birthday"
+        },
+        {
+            label: "Description",
+            type: "textBox",
+            state: richText,
+            stateFn: setValueOfRichText,
+            placeholder: "Enter Your Phone Number",
+            required: true,
+            errorMessage: "Phone Number is required",
+            className: "border-0",
+            name: "phoneNumber"
+        },
+        {
+            label: "Product Image",
+            type: "file",
+            required: true,
+            state: imageUrl,
+            stateFn: setImageUrl,
+            errorMessage: "",
+            name: "image"
+        },
+
+
+    ];
+
+
+    const onSubmit = (data) => {
+        data.image = imageUrl
+        data.dis = richText
+        data.select = selectOption.value
+        data.startDate = startDate
+        console.log("data", data);
+    };
+```
